@@ -1,0 +1,152 @@
+---
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+trigger_map:
+- pull_request_source_branch: "*"
+  pull_request_target_branch: "*"
+  workflow: CI_Build_And_Test
+- pull_request_source_branch: "*"
+  pull_request_target_branch: develop
+  workflow: CI_Build_And_Test
+- pull_request_source_branch: "*"
+  pull_request_target_branch: feature/*
+  workflow: CI_Build_And_Test
+- pull_request_source_branch: "*"
+  pull_request_target_branch: hotfix/*
+  workflow: CI_Build_And_Test
+- pull_request_source_branch: "*"
+  pull_request_target_branch: release/*
+  workflow: CI_Build_And_Test
+- pull_request_source_branch: "*"
+  pull_request_target_branch: master
+  workflow: CI_Build_And_Test
+- tag: "*"
+  workflow: Github_Release
+project_type: ios
+workflows:
+  CI_Build_And_Test:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: bitrise.build@bot.com
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8.1: {}
+    - restore-spm-cache@1: {}
+    - xcode-test@4.7: {}
+    - save-spm-cache@1: {}
+    - deploy-to-bitrise-io@2: {}
+  Github_Release:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: bitrise.build@bot.com
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - github-release@0:
+        inputs:
+        - api_token: "$GITHUB_BOT_APITOKEN"
+        - name: "$BITRISE_GIT_TAG"
+        - body: "$BITRISE_GIT_MESSAGE"
+        - draft: 'no'
+        - username: "$GITHUB_BOT_USERNAME"
+  Release_Build:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: bitrise.build@bot.com
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8.1: {}
+    - script@1:
+        inputs:
+        - content: |2-
+                if [[ "$BITRISE_GIT_BRANCH" == "master" ]]; then
+                echo "Building and Archiving from master branch."
+                else
+                echo "You are trying to upload a release candidate from a non-release branch (release branch: master). Try integrating your changes into master and triggering again."
+
+                # Skip Slack message
+                envman add --key SKIP_OTHER_STEPS --value "true"
+                exit 1
+                fi
+        title: Check release branch
+    - restore-spm-cache@1: {}
+    - xcode-test@4.7: {}
+    - save-spm-cache@1: {}
+    - deploy-to-bitrise-io@2: {}
+    - script@1:
+        inputs:
+        - content: |
+            source "./scripts/app-version.sh"
+
+            function get_number {
+               # echo $APPVERSION
+                IFS='.'     # hyphen (-) is set as delimiter
+                read -ra ADDR <<< "$APPVERSION"   # str is read into an array as tokens separated by IFS
+            #    for i in "${ADDR[@]}"; do   # access each element of array
+            #        echo "$i"
+            #    done
+                IFS=' '     # reset to default value after usage
+                echo ${ADDR[$1]}
+            }
+
+            function get_semantic_version {
+                # Get each piece of current marketing version
+                MAJOR=$(get_number 0)
+                MINOR=$(get_number 1)
+                PATCH=$(get_number 2)
+                # Define position from number to change according to bump type
+                case $1 in
+                    # Patch
+                    'patch')
+                        NEXT_MAJOR=$MAJOR
+                        NEXT_MINOR=$MINOR
+                        NEXT_PATCH=`expr $PATCH + 1`
+                        ;;
+
+                    # Minor
+                    'minor')
+                        NEXT_MAJOR=$MAJOR
+                        NEXT_MINOR=`expr $MINOR + 1`
+                        NEXT_PATCH=0
+                        ;;
+
+                    # Major
+                    'major')
+                        NEXT_MAJOR=`expr $MAJOR + 1`
+                        NEXT_MINOR=0
+                        NEXT_PATCH=0
+                        ;;
+                    *)
+                        NEXT_MAJOR=$MAJOR
+                        NEXT_MINOR=$MINOR
+                        NEXT_PATCH=$PATCH
+                    ;;
+                esac
+                echo "${NEXT_MAJOR}.${NEXT_MINOR}.${NEXT_PATCH}"
+            }
+
+            function bump_version {
+                # Get each piece of current marketing version
+                NEXT_VERSION=$(get_semantic_version $BUMP_TYPE)
+                sed -i '' "s/$APPVERSION/$NEXT_VERSION/g" "./scripts/app-version.sh"
+                git add "./scripts/app-version.sh"
+                git commit -m "bump build version"
+                git tag $NEXT_VERSION
+                git push && git push --tags
+                echo $NEXT_VERSION
+            }
+
+            bump_version
+        title: Bump_Build
+meta:
+  bitrise.io:
+    stack: osx-xcode-14.3.x-edge
+    machine_type_id: g2-m1.4core
+app:
+  envs:
+  - BITRISE_PROJECT_PATH: "./Package.swift"
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: AirSettingsUI
