@@ -1,5 +1,6 @@
-import XCTest
 @testable import AirSettingsUI
+import SnapshotTesting
+import XCTest
 
 final class AirSettingsUITests: XCTestCase {
     func testExample() throws {
