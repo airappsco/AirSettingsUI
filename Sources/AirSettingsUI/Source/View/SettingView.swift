@@ -52,7 +52,6 @@ struct SettingView: View {
                     }
                     .opacity(0)
                 }
-                
             } else {
                 SettingPageView(
                     title: page.title,

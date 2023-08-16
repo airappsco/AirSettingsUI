@@ -76,7 +76,7 @@ struct PreferencesView: View {
                                     "Chinese",
                                     "Japanese",
                                     "Korean",
-                                    "German",
+                                    "German"
                                 ],
                                 selectedIndex: $model.languageIndex
                             )
@@ -242,7 +242,7 @@ struct PreferencesView: View {
                         choices: [
                             "Classic",
                             "Dark",
-                            "Neon",
+                            "Neon"
                         ],
                         selectedIndex: $model.iconIndex
                     )
@@ -252,7 +252,7 @@ struct PreferencesView: View {
                         choices: [
                             "Automatic",
                             "Light",
-                            "Dark",
+                            "Dark"
                         ],
                         selectedIndex: $model.modeIndex
                     )
@@ -274,7 +274,7 @@ struct PreferencesView: View {
                             LinearGradient(
                                 colors: [
                                     Color(hex: 0xFF00C7),
-                                    Color(hex: 0xFFBF00),
+                                    Color(hex: 0xFFBF00)
                                 ],
                                 startPoint: .bottomLeading,
                                 endPoint: .topTrailing

@@ -15,18 +15,18 @@ struct SettingSliderView: View {
         Slider(
             value: $value,
             in: range,
-            step: step
-        ) {
-            EmptyView()
-        } minimumValueLabel: {
-            if let minimumImage {
-                minimumImage
+            step: step,
+            label: { EmptyView() },
+            minimumValueLabel: {
+                if let minimumImage {
+                    minimumImage
+                }
+            }, maximumValueLabel: {
+                if let maximumImage {
+                    maximumImage
+                }
             }
-        } maximumValueLabel: {
-            if let maximumImage {
-                maximumImage
-            }
-        }
+        )
         .accessibilityElement(children: .combine)
         .padding(.vertical, verticalPadding)
         .padding(.horizontal, horizontalPadding ?? edgePadding)
