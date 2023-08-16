@@ -44,7 +44,6 @@ public extension AirSetting {
         case let customView as SettingCustomView:
             return customView.titleForSearch ?? "Custom"
         default:
-            print("Text identifier was nil for: \(type(of: self))")
             return nil
         }
     }
