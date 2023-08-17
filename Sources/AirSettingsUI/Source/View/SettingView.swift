@@ -87,7 +87,7 @@ struct SettingView: View {
                 SettingView(setting: setting)
             }
             
-        case let customView as SettingCustomView:
+        case let customView as SettingCustomContent:
             customView.view
         default:
             Text("Unsupported setting, please file a bug report.")

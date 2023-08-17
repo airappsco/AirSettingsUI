@@ -1,5 +1,4 @@
 @testable import AirSettingsUI
-import SnapshotTesting
 import SwiftUI
 import XCTest
 
@@ -45,8 +44,8 @@ final class AirSettingsTests: XCTestCase {
     }
     
     func test_textIdentifier_whenSettingCustomView() {
-        XCTAssertEqual(SettingCustomView(view: { Text("CustomView") }).textIdentifier, "Custom")
-        XCTAssertEqual(SettingCustomView(view: {}).textIdentifier, "Custom")
+        XCTAssertEqual(SettingCustomContent(view: { Text("CustomView") }).textIdentifier, "Custom")
+        XCTAssertEqual(SettingCustomContent(view: {}).textIdentifier, "Custom")
     }
     
     func test_textIdentifier_whenIDNil() {
@@ -104,8 +103,8 @@ final class AirSettingsTests: XCTestCase {
     }
     
     func test_id_whenSettingCustomView() {
-        XCTAssertNil(SettingCustomView(view: { Text("CustomView") }).id)
-        XCTAssertNil(SettingCustomView(view: {}).id)
+        XCTAssertNil(SettingCustomContent(view: { Text("CustomView") }).id)
+        XCTAssertNil(SettingCustomContent(view: {}).id)
     }
 }
 
