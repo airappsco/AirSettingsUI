@@ -5,12 +5,12 @@ import SwiftUI
 
  Tip: Wrap any `Setting` (such as `SettingText` or `SettingToggle`) inside here to further customize them.
 
-     SettingCustomView {
+     SettingCustomContent {
          SettingText(title: "I'm bold!")
              .bold()
      }
  */
-public struct SettingCustomView: AirSetting {
+public struct SettingCustomContent: AirSetting {
     /**
      A unique ID for identifying this view.
 

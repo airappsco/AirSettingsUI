@@ -54,5 +54,3 @@ struct SettingButtonView: View {
         .buttonStyle(.row)
     }
 }
-
-

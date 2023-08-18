@@ -100,4 +100,3 @@ struct SettingGroupView<Content: View>: View {
         .padding(.horizontal, horizontalPadding ?? edgePadding)
     }
 }
-

@@ -145,4 +145,3 @@ struct SettingPickerChoicesView: View {
         }
     }
 }
-

@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "28318DC1-9798-4B9A-8200-B4E202153C45",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "AirSettingsUI",
+          "name" : "AirSettingsUI"
+        }
+      ]
+    },
+    "language" : "en",
+    "locationScenario" : {
+      "identifier" : "San Francisco, CA, USA",
+      "referenceType" : "built-in"
+    },
+    "region" : "US"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "AirSettingsUITests",
+        "name" : "AirSettingsUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
