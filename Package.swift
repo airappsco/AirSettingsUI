@@ -25,12 +25,17 @@ let package = Package(
         .target(
             name: "AirSettingsUI", plugins: [
                 .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
-            ]),
+            ]
+        ),
         .testTarget(
             name: "AirSettingsUITests",
             dependencies: [
                 "AirSettingsUI",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
-            ])
+            ],
+            resources: [
+                .copy("Tests/AirSettingsUITests/Resources/Media.xcassets")
+            ]
+        )
     ]
 )

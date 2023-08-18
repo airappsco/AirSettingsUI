@@ -12,11 +12,11 @@ extension Color {
     }
     
     var hex: UInt {
-        getHex() ?? 0x00AEEF
+        hex() ?? 0x00AEEF
     }
     
     /// from https://stackoverflow.com/a/28645384/14351818
-    func getHex() -> UInt? {
+    func hex() -> UInt? {
         var fRed: CGFloat = 0
         var fGreen: CGFloat = 0
         var fBlue: CGFloat = 0

@@ -19,9 +19,9 @@ struct SettingIconView: View {
                 .frame(width: Constants.iconDimension, height: Constants.iconDimension)
                 .background(backgroundColor)
                 .cornerRadius(Constants.iconCornerRadius)
-        case .image(let name, let inset, let foregroundColor, let backgroundColor):
+        case .image(let image, let inset, let foregroundColor, let backgroundColor):
             if let foregroundColor {
-                Image(name)
+                image
                     .resizable()
                     .renderingMode(.template)
                     .foregroundColor(foregroundColor)
@@ -31,7 +31,7 @@ struct SettingIconView: View {
                     .background(backgroundColor)
                 .cornerRadius(Constants.iconCornerRadius)
             } else {
-                Image(name)
+                image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(inset)

@@ -1,4 +1,4 @@
-import AirSettingsUI
+@testable import AirSettingsUI
 import XCTest
 
 final class SettingStackTests: XCTestCase {

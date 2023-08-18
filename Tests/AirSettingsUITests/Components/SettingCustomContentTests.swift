@@ -23,4 +23,3 @@ final class SettingCustomContentTests: XCTestCase {
         assert(view: sut.view)
     }
 }
-
