@@ -55,8 +55,8 @@ struct SettingJumpLink: View {
     }
     
     @ViewBuilder func preview(destinationPage: AirSetting?) -> some View {
-        let title = getDestinationTitle()
-        let titles = getPathTitles()
+        let title = destinationTile()
+        let titles = pathTiles()
         
         HStack(spacing: horizontalSpacing) {
             VStack(spacing: verticalSpacing) {
@@ -100,12 +100,12 @@ struct SettingJumpLink: View {
         .accessibilityElement(children: .combine)
     }
     
-    func getPathTitles() -> [String] {
+    func pathTiles() -> [String] {
         let titles = path.settings.compactMap { $0.text }
         return titles
     }
     
-    func getDestinationTitle() -> String {
+    func destinationTile() -> String {
         if
             let setting = path.settings.last,
             let title = setting.text

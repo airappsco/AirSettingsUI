@@ -12,11 +12,11 @@ extension Color {
     }
     
     var hex: UInt {
-        return getHex() ?? 0x00AEEF
+        hex() ?? 0x00AEEF
     }
     
     /// from https://stackoverflow.com/a/28645384/14351818
-    func getHex() -> UInt? {
+    func hex() -> UInt? {
         var fRed: CGFloat = 0
         var fGreen: CGFloat = 0
         var fBlue: CGFloat = 0
@@ -65,6 +65,6 @@ extension Color {
 extension Comparable {
     /// used for the UIColor
     func clamped(to limits: ClosedRange<Self>) -> Self {
-        return min(max(self, limits.lowerBound), limits.upperBound)
+        min(max(self, limits.lowerBound), limits.upperBound)
     }
 }

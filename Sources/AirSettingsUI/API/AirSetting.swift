@@ -41,10 +41,9 @@ public extension AirSetting {
             return group.tuple.textIdentifier
         case let tuple as SettingTupleView:
             return tuple.flattened.compactMap { $0.textIdentifier }.joined()
-        case let customView as SettingCustomView:
+        case let customView as SettingCustomContent:
             return customView.titleForSearch ?? "Custom"
         default:
-            print("Text identifier was nil for: \(type(of: self))")
             return nil
         }
     }
@@ -72,7 +71,7 @@ public extension AirSetting {
             return group.header
         case is SettingTupleView:
             return nil
-        case let customView as SettingCustomView:
+        case let customView as SettingCustomContent:
             return customView.titleForSearch
         default:
             return nil
