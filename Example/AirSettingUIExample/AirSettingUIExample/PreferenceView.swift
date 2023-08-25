@@ -26,7 +26,7 @@ struct PreferencesView: View {
             SettingPage(title: "Preferences") {
                 SettingGroup {
                     SettingPage(title: "General") {
-                        SettingCustomView(id: "Header View") {
+                        SettingCustomContent(id: "Header View") {
                             VStack(spacing: 10) {
                                 Image(systemName: "gearshape.fill")
                                     .font(.largeTitle)
@@ -45,7 +45,7 @@ struct PreferencesView: View {
                         
                         SettingGroup {
                             SettingButton(title: "View on GitHub") {
-                                if let url = URL(string: "https://github.com/aheze/Setting") {
+                                if let url = URL(string: "https://github.com/airappsco") {
 #if os(iOS)
                                     UIApplication.shared.open(url)
 #else
@@ -54,8 +54,28 @@ struct PreferencesView: View {
                                 }
                             }
                             
-                            SettingButton(title: "My Twitter") {
-                                if let url = URL(string: "https://twitter.com/aheze0") {
+                            SettingButton(title: "Instagram") {
+                                if let url = URL(string: "https://www.instagram.com/airappsco") {
+#if os(iOS)
+                                    UIApplication.shared.open(url)
+#else
+                                    NSWorkspace.shared.open(url)
+#endif
+                                }
+                            }
+                            
+                            SettingButton(title: "Twitter") {
+                                if let url = URL(string: "https://twitter.com/airappsco") {
+#if os(iOS)
+                                    UIApplication.shared.open(url)
+#else
+                                    NSWorkspace.shared.open(url)
+#endif
+                                }
+                            }
+                            
+                            SettingButton(title: "LinkedIn") {
+                                if let url = URL(string: "https://www.linkedin.com/company/airapps") {
 #if os(iOS)
                                     UIApplication.shared.open(url)
 #else
@@ -183,7 +203,7 @@ struct PreferencesView: View {
                     .previewIcon(icon: .system(icon: "bell.badge.fill", backgroundColor: Color(hex: 0xFF2300)))
                     
                     SettingPage(title: "Themes") {
-                        SettingCustomView(id: "Color Picker Preview") {
+                        SettingCustomContent(id: "Color Picker Preview") {
                             VStack {
                                 if #available(iOS 16.0, macOS 13.0, *) {
                                     Rectangle()
@@ -202,7 +222,7 @@ struct PreferencesView: View {
                         SettingGroup {
                             SettingText(title: "Choose a Color")
                             
-                            SettingCustomView(id: "Color Picker") {
+                            SettingCustomContent(id: "Color Picker") {
                                 let binding = Binding {
                                     Color(hex: model.color)
                                 } set: { newValue in
@@ -262,7 +282,7 @@ struct PreferencesView: View {
                     SettingTextField(placeholder: "Enter text here", text: $model.text)
                 }
                 
-                SettingCustomView(id: "Custom Footer", titleForSearch: "Welcome to Setting!") {
+                SettingCustomContent(id: "Custom Footer", titleForSearch: "Welcome to Setting!") {
                     Text("Welcome to Setting!")
                         .foregroundColor(.white)
                         .font(.headline)
@@ -283,28 +303,6 @@ struct PreferencesView: View {
                         }
                         .cornerRadius(12)
                         .padding(.horizontal, 16)
-                }
-                
-                SettingCustomView(id: "Footer Link") {
-                    Button {
-                        if let url = URL(string: "https://twitter.com/aheze0") {
-#if os(iOS)
-                            UIApplication.shared.open(url)
-#else
-                            NSWorkspace.shared.open(url)
-#endif
-                        }
-                    } label: {
-                        Image("Twitter")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.secondary)
-                            .frame(width: 30, height: 30)
-                            .padding(6)
-                            .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .frame(maxWidth: .infinity)
                 }
             }
         }
