@@ -1,9 +1,13 @@
+![AirSettings_Project Banner_Github](https://github.com/airappsco/AirSettingsUI/assets/97190276/bfaf9dc9-7477-4589-9f1a-50483cf36dea)
+
 # AirSettingsUI
 
 ![License Badge](https://img.shields.io/badge/license-MIT-lightgray)
 ![iOS +15.0 Badge](https://img.shields.io/badge/iOS-15.0+-blue.svg)
 ![SPM Badge](https://img.shields.io/badge/SPM-compatible-brightgreen)
 ![SwiftUI](https://img.shields.io/badge/SwiftUI--orange)
+
+# Documentation
 
 **Compose beautiful preference panels.**
 
