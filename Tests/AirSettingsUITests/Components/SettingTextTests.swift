@@ -19,4 +19,3 @@ final class SettingTextTests: XCTestCase {
         assert(view: sut)
     }
 }
-

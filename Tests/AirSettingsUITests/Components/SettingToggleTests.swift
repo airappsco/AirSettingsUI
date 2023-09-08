@@ -24,4 +24,3 @@ final class SettingToggleTests: XCTestCase {
         assert(view: sut)
     }
 }
-
