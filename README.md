@@ -338,6 +338,7 @@ struct ContentView: View {
   
 </td>
 </tr>
+</table>
 
 ### Reference
 This project is based of [Setting](https://github.com/aheze/Setting) created by [Andrew Zheng](https://github.com/aheze) AKA [Aheze](https://github.com/aheze). We didn't forked or adopted his project due to the requirement of AirApps distribuiting it's own open source projects and enforcing our own coding style over the project. All kudos to the creator of this repository. 
