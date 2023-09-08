@@ -1,4 +1,8 @@
+![AirSettings_Project Banner_Github](https://github.com/airappsco/AirSettingsUI/assets/97190276/bfaf9dc9-7477-4589-9f1a-50483cf36dea)
+
 # AirSettingsUI
+
+# Documentation
 
 **Compose beautiful preference panels.**
 
