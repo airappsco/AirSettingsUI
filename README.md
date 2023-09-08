@@ -1,5 +1,10 @@
 # AirSettingsUI
 
+![License Badge](https://img.shields.io/badge/license-MIT-lightgray)
+![iOS +15.0 Badge](https://img.shields.io/badge/iOS-15.0+-blue.svg)
+![SPM Badge](https://img.shields.io/badge/SPM-compatible-brightgreen)
+![SwiftUI](https://img.shields.io/badge/SwiftUI--orange)
+
 **Compose beautiful preference panels.**
 
 - Simple but powerful syntax (powered by [result builders](https://www.hackingwithswift.com/swift/5.4/result-builders)).
