@@ -1,6 +1,6 @@
 @testable import AirSettingsUI
-import XCTest
 import SwiftUI
+import XCTest
 
 final class SettingBuilderTests: XCTestCase {
     
@@ -17,7 +17,6 @@ final class SettingBuilderTests: XCTestCase {
             SettingText(title: "Setting 1"),
             SettingText(title: "Setting 2"),
             SettingText(title: "Setting 3")
-            
         ])
         
         XCTAssertEqual(settingView.settings.count, 3)

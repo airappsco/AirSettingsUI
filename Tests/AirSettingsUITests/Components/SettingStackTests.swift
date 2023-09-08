@@ -23,4 +23,3 @@ final class SettingStackTests: XCTestCase {
         assert(view: sut, size: .init(width: 300, height: 400))
     }
 }
-

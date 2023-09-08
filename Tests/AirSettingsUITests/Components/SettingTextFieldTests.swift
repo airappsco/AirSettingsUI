@@ -24,4 +24,3 @@ final class SettingTextFieldTests: XCTestCase {
         assert(view: sut)
     }
 }
-

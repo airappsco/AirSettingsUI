@@ -35,4 +35,3 @@ final class SettingSearchResultViewTests: XCTestCase {
         assert(view: sut)
     }
 }
-

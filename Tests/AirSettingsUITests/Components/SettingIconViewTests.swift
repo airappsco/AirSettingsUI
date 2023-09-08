@@ -35,4 +35,3 @@ final class SettingIconViewTests: XCTestCase {
         assert(view: sut)
     }
 }
-
