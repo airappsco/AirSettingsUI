@@ -12,7 +12,7 @@
 		448F475D2A8BC3C60033C5E5 /* AirSettingUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F475C2A8BC3C60033C5E5 /* AirSettingUIExampleApp.swift */; };
 		448F47612A8BC3C60033C5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448F47602A8BC3C60033C5E5 /* Assets.xcassets */; };
 		448F47642A8BC3C60033C5E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448F47632A8BC3C60033C5E5 /* Preview Assets.xcassets */; };
-		448F476E2A8BC4070033C5E5 /* AirSettingsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 448F476D2A8BC4070033C5E5 /* AirSettingsUI */; };
+		44D9198C2AC5FF5000C041C5 /* AirSettingsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 44D9198B2AC5FF5000C041C5 /* AirSettingsUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,7 @@
 		448F475C2A8BC3C60033C5E5 /* AirSettingUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSettingUIExampleApp.swift; sourceTree = "<group>"; };
 		448F47602A8BC3C60033C5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		448F47632A8BC3C60033C5E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		448F476B2A8BC3FB0033C5E5 /* AirSettingsUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AirSettingsUI; path = ../..; sourceTree = "<group>"; };
+		44D9198A2AC5FEEE00C041C5 /* AirSettingsUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AirSettingsUI; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448F476E2A8BC4070033C5E5 /* AirSettingsUI in Frameworks */,
+				44D9198C2AC5FF5000C041C5 /* AirSettingsUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 		448F476A2A8BC3FB0033C5E5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				448F476B2A8BC3FB0033C5E5 /* AirSettingsUI */,
+				44D9198A2AC5FEEE00C041C5 /* AirSettingsUI */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 			);
 			name = AirSettingUIExample;
 			packageProductDependencies = (
-				448F476D2A8BC4070033C5E5 /* AirSettingsUI */,
+				44D9198B2AC5FF5000C041C5 /* AirSettingsUI */,
 			);
 			productName = AirSettingUIExample;
 			productReference = 448F47592A8BC3C60033C5E5 /* AirSettingUIExample.app */;
@@ -176,7 +176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}/../../\"\n./Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh\n";
+			shellScript = "cd \"${SRCROOT}/../\"\n./Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -390,7 +390,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		448F476D2A8BC4070033C5E5 /* AirSettingsUI */ = {
+		44D9198B2AC5FF5000C041C5 /* AirSettingsUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AirSettingsUI;
 		};

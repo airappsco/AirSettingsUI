@@ -52,8 +52,8 @@ final class AirSettingsTests: XCTestCase {
     }
 
     func test_textIdentifier_whenSettingCustomView() {
-        XCTAssertEqual(SettingCustomContent(view: { Text("CustomView") }).textIdentifier, "Custom")
-        XCTAssertEqual(SettingCustomContent(view: {}).textIdentifier, "Custom")
+        XCTAssertNil(SettingCustomContent(view: { Text("CustomView") }).textIdentifier)
+        XCTAssertNil(SettingCustomContent(view: {}).textIdentifier)
     }
 
     func test_textIdentifier_whenIDNil() {
