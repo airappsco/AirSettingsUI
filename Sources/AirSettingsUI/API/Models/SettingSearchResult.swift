@@ -1,4 +1,3 @@
-
 //
 //  SettingSearchResult.swift
 //  AirSettingUI

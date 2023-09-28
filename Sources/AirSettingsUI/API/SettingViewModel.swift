@@ -1,4 +1,3 @@
-
 //
 //  SettingViewModel.swift
 //  AirSettingUI

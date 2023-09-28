@@ -1,4 +1,3 @@
-
 //
 //  SettingTextView.swift
 //  AirSettingUI

@@ -1,4 +1,3 @@
-
 //
 //  SettingIconViewTests.swift
 //  AirSettingUI

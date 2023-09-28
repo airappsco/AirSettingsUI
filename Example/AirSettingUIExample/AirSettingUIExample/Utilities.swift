@@ -1,4 +1,3 @@
-
 //
 //  Utilities.swift
 //  AirSettingUI

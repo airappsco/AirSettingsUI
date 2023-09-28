@@ -1,4 +1,3 @@
-
 //
 //  SettingTupleView.swift
 //  AirSettingUI

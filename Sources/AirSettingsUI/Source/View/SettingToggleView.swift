@@ -1,4 +1,3 @@
-
 //
 //  SettingToggleView.swift
 //  AirSettingUI

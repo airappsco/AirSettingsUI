@@ -1,4 +1,3 @@
-
 //
 //  SettingGroupView.swift
 //  AirSettingUI

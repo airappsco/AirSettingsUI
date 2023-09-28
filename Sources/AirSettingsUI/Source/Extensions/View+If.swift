@@ -1,4 +1,3 @@
-
 //
 //  View+If.swift
 //  AirSettingUI

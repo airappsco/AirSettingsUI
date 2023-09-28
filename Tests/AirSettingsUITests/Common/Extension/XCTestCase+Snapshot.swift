@@ -1,4 +1,3 @@
-
 //
 //  XCTestCase+Snapshot.swift
 //  AirSettingUI

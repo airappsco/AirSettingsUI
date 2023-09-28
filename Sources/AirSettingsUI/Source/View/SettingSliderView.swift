@@ -1,4 +1,3 @@
-
 //
 //  SettingSliderView.swift
 //  AirSettingUI

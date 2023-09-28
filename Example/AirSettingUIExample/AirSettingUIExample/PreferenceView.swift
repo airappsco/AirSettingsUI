@@ -1,4 +1,3 @@
-
 //
 //  PreferenceView.swift
 //  AirSettingUI

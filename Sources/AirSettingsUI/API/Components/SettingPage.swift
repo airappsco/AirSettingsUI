@@ -1,4 +1,3 @@
-
 //
 //  SettingPage.swift
 //  AirSettingUI
