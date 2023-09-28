@@ -6,8 +6,6 @@ on:
       - '.github/workflows/swiftlint.yml'
       - '.swiftlint.yml'
       - '**/*.swift'
-      - '/Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh'
-
 jobs:
   SwiftLint:
     runs-on: ubuntu-latest
