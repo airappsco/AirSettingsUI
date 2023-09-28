@@ -53,41 +53,25 @@ struct PreferencesView: View {
                         SettingGroup {
                             SettingButton(title: "View on GitHub") {
                                 if let url = URL(string: "https://github.com/airappsco") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
 
                             SettingButton(title: "Instagram") {
                                 if let url = URL(string: "https://www.instagram.com/airappsco") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
 
                             SettingButton(title: "Twitter") {
                                 if let url = URL(string: "https://twitter.com/airappsco") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
 
                             SettingButton(title: "LinkedIn") {
                                 if let url = URL(string: "https://www.linkedin.com/company/airapps") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
                         }
