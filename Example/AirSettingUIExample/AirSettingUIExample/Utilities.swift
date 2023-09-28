@@ -10,31 +10,31 @@ extension Color {
             opacity: alpha
         )
     }
-    
+
     var hex: UInt {
         hexadecimal() ?? 0x00AEEF
     }
-    
+
     /// from https://stackoverflow.com/a/28645384/14351818
     func hexadecimal() -> UInt? {
         var fRed: CGFloat = 0
         var fGreen: CGFloat = 0
         var fBlue: CGFloat = 0
         var fAlpha: CGFloat = 0
-        
+
 #if os(iOS)
-        
+
         let color = UIColor(self)
-        
+
         if color.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
             fRed = fRed.clamped(to: 0 ... 1)
             fGreen = fGreen.clamped(to: 0 ... 1)
             fBlue = fBlue.clamped(to: 0 ... 1)
-            
+
             let iRed = UInt(fRed * 255.0)
             let iGreen = UInt(fGreen * 255.0)
             let iBlue = UInt(fBlue * 255.0)
-            
+
             //  (Bits 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
             let hex = (iRed << 16) + (iGreen << 8) + iBlue
             return hex
@@ -44,20 +44,20 @@ extension Color {
         }
 #else
         let color = NSColor(self)
-        
+
         color.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
         fRed = fRed.clamped(to: 0 ... 1)
         fGreen = fGreen.clamped(to: 0 ... 1)
         fBlue = fBlue.clamped(to: 0 ... 1)
-        
+
         let iRed = UInt(fRed * 255.0)
         let iGreen = UInt(fGreen * 255.0)
         let iBlue = UInt(fBlue * 255.0)
-        
+
         //  (Bits 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
         let hex = (iRed << 16) + (iGreen << 8) + iBlue
         return hex
-        
+
 #endif
     }
 }

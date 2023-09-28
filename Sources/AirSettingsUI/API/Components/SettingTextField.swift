@@ -4,7 +4,7 @@ import SwiftUI
  A text field.
  */
 public struct SettingTextField: View, AirSetting {
-    
+
     public let id: AnyHashable?
     public let placeholder: String
     @Binding public var text: String

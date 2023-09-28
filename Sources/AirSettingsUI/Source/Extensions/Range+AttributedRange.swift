@@ -3,7 +3,7 @@ extension Range<String.Index> {
     func attributedRange(for attributedString: AttributedString) -> Range<AttributedString.Index>? {
         let start = AttributedString.Index(lowerBound, within: attributedString)
         let end = AttributedString.Index(upperBound, within: attributedString)
-        
+
         guard let start, let end else { return nil }
         let attributedRange = start ..< end
         return attributedRange

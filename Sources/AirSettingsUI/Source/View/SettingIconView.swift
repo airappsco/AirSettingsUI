@@ -3,13 +3,13 @@ import SwiftUI
  A view for displaying a `SettingIcon`.
  */
 struct SettingIconView: View {
-    
+
     let icon: SettingIcon
-    
+
     init(icon: SettingIcon) {
         self.icon = icon
     }
-    
+
     var body: some View {
         switch icon {
         case .system(let icon, let foregroundColor, let backgroundColor):
@@ -39,7 +39,7 @@ struct SettingIconView: View {
                     .background(backgroundColor)
                     .cornerRadius(Constants.iconCornerRadius)
             }
-            
+
         case .custom(let anyView):
             anyView
         }

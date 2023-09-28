@@ -32,9 +32,6 @@ let package = Package(
             dependencies: [
                 "AirSettingsUI",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
-            ],
-            resources: [
-                .copy("Tests/AirSettingsUITests/Resources/Media.xcassets")
             ]
         )
     ]

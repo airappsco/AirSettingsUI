@@ -1,15 +1,16 @@
 @testable import AirSettingsUI
 import XCTest
 
+// swiftlint:disable implicitly_unwrapped_optional
 final class SettingJumpLinkTests: XCTestCase {
-    
+
     private var sut: SettingJumpLink!
-    
+
     override func tearDown() {
         sut = .none
         super.tearDown()
     }
-    
+
     func test_settingJumpLink_whenSingleItem() {
         let settingViewModel = SettingViewModel()
         settingViewModel.searchText = "to"
@@ -22,7 +23,7 @@ final class SettingJumpLinkTests: XCTestCase {
             view: sut.environmentObject(settingViewModel)
         )
     }
-    
+
     func test_settingJumpLink_multipleItem() {
         let settingViewModel = SettingViewModel()
         settingViewModel.highlightMatchingText = true
@@ -38,7 +39,7 @@ final class SettingJumpLinkTests: XCTestCase {
             view: sut.environmentObject(settingViewModel)
         )
     }
-    
+
     func test_settingJumpLink_multipleItemAndNavigation() {
         let settingViewModel = SettingViewModel()
         settingViewModel.highlightMatchingText = true

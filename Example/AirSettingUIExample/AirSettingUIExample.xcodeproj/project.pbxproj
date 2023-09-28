@@ -163,7 +163,7 @@
 		44459A372AC4829A00028A6C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -176,7 +176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${SRCROOT}/../\"\n./Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh\n";
+			shellScript = "cd \"${SRCROOT}/../../\"\n./Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

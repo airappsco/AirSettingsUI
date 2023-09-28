@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SettingSliderView: View {
     @Environment(\.edgePadding) private var edgePadding
-    
+
     @Binding var value: Double
     let range: ClosedRange<Double>
     let step: Double.Stride
@@ -10,7 +10,7 @@ struct SettingSliderView: View {
     let maximumImage: Image?
     let verticalPadding: CGFloat
     let horizontalPadding: CGFloat?
-    
+
     var body: some View {
         Slider(
             value: $value,

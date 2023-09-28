@@ -4,7 +4,7 @@ import SwiftUI
  A group of `Setting`s.
  */
 public struct SettingGroup: AirSetting {
-    
+
     public let id: AnyHashable?
     let header: String?
     let footer: String?
@@ -15,7 +15,7 @@ public struct SettingGroup: AirSetting {
     let dividerLeadingMargin: CGFloat
     let dividerTrailingMargin: CGFloat
     let dividerColor: Color?
-    
+
     @SettingBuilder let tuple: SettingTupleView
 
     public init(

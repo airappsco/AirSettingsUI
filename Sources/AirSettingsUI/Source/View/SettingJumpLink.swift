@@ -6,17 +6,17 @@ import SwiftUI
 struct SettingJumpLink: View {
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
     @Environment(\.edgePadding) private var edgePadding
-    
+
     let path: SettingPath
     let indicator: String
     let verticalSpacing: CGFloat
     let horizontalSpacing: CGFloat
     let verticalPadding: CGFloat
     let horizontalPadding: CGFloat?
-    
+
     @EnvironmentObject private var settingViewModel: SettingViewModel
     @State private var isActive = false
-    
+
     init(
         path: SettingPath,
         indicator: String = Constants.navigateIconName,
@@ -32,10 +32,10 @@ struct SettingJumpLink: View {
         self.verticalPadding = verticalPadding
         self.horizontalPadding = horizontalPadding
     }
-    
+
     var body: some View {
         let destinationPage = path.settings.last(where: { $0 is SettingPage })
-        
+
         Button {
             isActive = true
         } label: {
@@ -53,16 +53,16 @@ struct SettingJumpLink: View {
             }
         }
     }
-    
+
     @ViewBuilder func preview(destinationPage: AirSetting?) -> some View {
         let title = destinationTile()
         let titles = pathTiles()
-        
+
         HStack(spacing: horizontalSpacing) {
             VStack(spacing: verticalSpacing) {
                 if settingViewModel.highlightMatchingText {
                     let highlightedText = highlightSearchText(searchText: settingViewModel.searchText, in: title)
-                    
+
                     Text(highlightedText)
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -71,14 +71,14 @@ struct SettingJumpLink: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
+
                 /// only show titles if more than 1 (no need to say "General" underneath "General")
                 if titles.count > 1 {
                     /// empty title
                     HStack(spacing: 2) {
                         ForEach(Array(zip(titles.indices, titles)), id: \.1.self) { index, title in
                             Text(title)
-                            
+
                             if index < titles.count - 1 {
                                 Image(systemName: "arrow.right")
                             }
@@ -90,7 +90,7 @@ struct SettingJumpLink: View {
                 }
             }
             .padding(.vertical, verticalPadding)
-            
+
             if destinationPage != nil {
                 Image(systemName: indicator)
                     .foregroundColor(settingSecondaryColor)
@@ -99,12 +99,12 @@ struct SettingJumpLink: View {
         .padding(.horizontal, horizontalPadding ?? edgePadding)
         .accessibilityElement(children: .combine)
     }
-    
+
     func pathTiles() -> [String] {
         let titles = path.settings.compactMap { $0.text }
         return titles
     }
-    
+
     func destinationTile() -> String {
         if
             let setting = path.settings.last,
@@ -112,14 +112,14 @@ struct SettingJumpLink: View {
         {
             return title
         }
-        
+
         return ""
     }
-    
+
     func highlightSearchText(searchText: String, in text: String) -> AttributedString {
         var attributedString = AttributedString(text)
         let ranges = text.ranges(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-        
+
         if ranges.isEmpty {
             attributedString.backgroundColor = .clear
         } else {
@@ -130,7 +130,7 @@ struct SettingJumpLink: View {
                 }
             }
         }
-        
+
         return attributedString
     }
 }

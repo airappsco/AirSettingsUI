@@ -11,19 +11,19 @@ import SwiftUI
             return SettingTupleView(settings: [])
         }
     }
-    
+
     public static func buildBlock(_ parts: AirSetting...) -> SettingTupleView {
         SettingTupleView(settings: parts)
     }
-    
+
     public static func buildEither(first component: AirSetting) -> SettingTupleView {
         SettingTupleView(settings: [component])
     }
-    
+
     public static func buildEither(second component: AirSetting) -> SettingTupleView {
         SettingTupleView(settings: [component])
     }
-    
+
     public static func buildArray(_ components: [AirSetting]) -> SettingTupleView {
         SettingTupleView(settings: components)
     }

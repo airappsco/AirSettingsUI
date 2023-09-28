@@ -75,7 +75,11 @@ public extension SettingPage {
 
     func previewIcon(_ icon: String, foregroundColor: Color = .white, backgroundColor: Color = .blue) -> SettingPage {
         var page = self
-        page.previewConfiguration.icon = .system(icon: icon, foregroundColor: foregroundColor, backgroundColor: backgroundColor)
+        page.previewConfiguration.icon = .system(
+            icon: icon,
+            foregroundColor: foregroundColor,
+            backgroundColor: backgroundColor
+        )
         return page
     }
 

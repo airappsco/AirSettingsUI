@@ -5,7 +5,7 @@ import SwiftUI
  */
 struct SettingRowButtonStyle: ButtonStyle {
     @Environment(\.settingPrimaryColor) var settingPrimaryColor
-    
+
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .contentShape(Rectangle())

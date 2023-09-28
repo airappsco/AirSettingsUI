@@ -2,12 +2,12 @@ import SwiftUI
 
 struct SettingSearchResultView: View {
     @Environment(\.settingBackgroundColor) var settingBackgroundColor
-    
+
     let searchResult: SettingSearchResult
     let spacing: CGFloat
     let verticalPadding: CGFloat
     let backgroundColor: Color?
-    
+
     init(
         searchResult: SettingSearchResult,
         spacing: CGFloat = 20,
@@ -19,7 +19,7 @@ struct SettingSearchResultView: View {
         self.verticalPadding = verticalPadding
         self.backgroundColor = backgroundColor
     }
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: spacing) {
@@ -32,7 +32,7 @@ struct SettingSearchResultView: View {
         }
         .background(backgroundColor ?? settingBackgroundColor)
     }
-    
+
     @ViewBuilder func content(section: SettingSearchResult.Section) -> some View {
         /// If it's just a custom view on the first page, show the custom view as-is.
         if

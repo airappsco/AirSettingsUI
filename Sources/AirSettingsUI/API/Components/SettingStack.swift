@@ -8,7 +8,8 @@ public struct SettingStack: View {
     @Environment(\.settingSecondaryBackgroundColor) private var settingSecondaryBackgroundColor
 
     /**
-     Whether the ``SettingStack`` should automatically embed in a ``NavigationStack`` / ``NavigationView``, or assume the view exists higher up
+     Whether the ``SettingStack`` should automatically embed in a ``NavigationStack`` / ``NavigationView``,
+     or assume the view exists higher up
      in the hierarchy.
      */
     private let embedInNavigationStack: Bool
@@ -38,8 +39,9 @@ public struct SettingStack: View {
     /**
      Create a new Settings view from a `SettingPage`. The default "no results" view will be used.
      - parameters:
-        - embedInNavigationStack: Whether to embed the Settings views in a ``NavigationStack`` / ``NavigationView`` or not. If this is `false`, you will be responsible for providing the ``NavigationStack`` / ``NavigationView``.
-        - page:A closure to provide a ``SettingPage`` to the ``SettingStack``.
+     - embedInNavigationStack: Whether to embed the Settings views in a ``NavigationStack`` / ``NavigationView`` or not.
+     If this is `false`, you will be responsible for providing the ``NavigationStack`` / ``NavigationView``.
+     - page:A closure to provide a ``SettingPage`` to the ``SettingStack``.
      */
     public init(
         isSearchable: Bool = true,
@@ -56,7 +58,9 @@ public struct SettingStack: View {
      Create a new Settings view from a `SettingPage`, with a custom `SettingViewModel` and custom "no results" view.
      - parameters:
         - settingViewModel: A custom view model to use for the ``SettingStack``.
-        - embedInNavigationStack: Whether to embed the Settings views in a ``NavigationStack`` / ``NavigationView`` or not. If this is `false`, you will be responsible for providing the ``NavigationStack`` / ``NavigationView``.
+        - embedInNavigationStack: Whether to embed the Settings views in a ``NavigationStack`` / ``NavigationView``
+     or not.
+     If this is `false`, you will be responsible for providing the ``NavigationStack`` / ``NavigationView``.
         - page:A closure to provide a ``SettingPage`` to the ``SettingStack``.
         - customNoResultsView: A view builder to provide the view to use when there's no results.
      */

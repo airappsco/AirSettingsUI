@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct SettingTextFieldView: View {
-    
+
     @Environment(\.edgePadding) private var edgePadding
-    
+
     let placeholder: String
     @Binding var text: String
     let verticalPadding: CGFloat
     let horizontalPadding: CGFloat?
-    
+
     init(
         placeholder: String,
         text: Binding<String>,
@@ -20,7 +20,7 @@ struct SettingTextFieldView: View {
         self.verticalPadding = verticalPadding
         self.horizontalPadding = horizontalPadding
     }
-    
+
     var body: some View {
         TextField(placeholder, text: $text)
             .frame(maxWidth: .infinity, alignment: .leading)

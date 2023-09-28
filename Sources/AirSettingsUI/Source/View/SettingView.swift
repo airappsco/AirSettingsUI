@@ -4,15 +4,15 @@ struct SettingView: View {
     let setting: AirSetting
     let isInitialPage: Bool
     let isPagePreview: Bool
-    
+
     @State private var isActive = false
-    
+
     init(setting: AirSetting, isInitialPage: Bool = false, isPagePreview: Bool = true) {
         self.setting = setting
         self.isInitialPage = isInitialPage
         self.isPagePreview = isPagePreview
     }
-    
+
     var body: some View {
         switch setting {
         case let text as SettingText:
@@ -28,7 +28,7 @@ struct SettingView: View {
         case let textField as SettingTextField:
             textField
         case let page as SettingPage:
-            
+
             if isPagePreview {
                 Button {
                     isActive = true
@@ -86,7 +86,7 @@ struct SettingView: View {
             ForEach(tuple.settings, id: \.identifier) { setting in
                 SettingView(setting: setting)
             }
-            
+
         case let customView as SettingCustomContent:
             customView.view
         default:
