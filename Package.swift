@@ -16,7 +16,7 @@ let package = Package(
             targets: ["AirSettingsUI"])
     ],
     dependencies: [
-        .package(url: "git@github.com:realm/SwiftLint.git", branch: "main"),
+        .package(url: "git@github.com:realm/SwiftLint.git", from: "0.0.1"),
         .package(url: "git@github.com:pointfreeco/swift-snapshot-testing.git", from: "1.11.1")
     ],
     targets: [
@@ -32,9 +32,6 @@ let package = Package(
             dependencies: [
                 "AirSettingsUI",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
-            ],
-            resources: [
-                .copy("Tests/AirSettingsUITests/Resources/Media.xcassets")
             ]
         )
     ]
