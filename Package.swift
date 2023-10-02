@@ -15,17 +15,9 @@ let package = Package(
             targets: ["AirSettingsUI"])
     ],
     dependencies: [
-        .package(url: "git@github.com:realm/SwiftLint.git", branch: "main"),
         .package(url: "git@github.com:pointfreeco/swift-snapshot-testing.git", from: "1.11.1")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "AirSettingsUI", plugins: [
-                .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
-            ]
-        ),
         .testTarget(
             name: "AirSettingsUITests",
             dependencies: [
