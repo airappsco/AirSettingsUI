@@ -18,6 +18,9 @@ let package = Package(
         .package(url: "git@github.com:pointfreeco/swift-snapshot-testing.git", from: "1.11.1")
     ],
     targets: [
+        .target(
+            name: "AirSettingsUI"
+        ),
         .testTarget(
             name: "AirSettingsUITests",
             dependencies: [
