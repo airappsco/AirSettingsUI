@@ -1,3 +1,10 @@
+//
+//  SettingEnvironment.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 private struct EdgePaddingKey: EnvironmentKey {
@@ -42,31 +49,31 @@ public extension EnvironmentValues {
         get { self[EdgePaddingKey.self] }
         set { self[EdgePaddingKey.self] = newValue }
     }
-    
+
     /// For text.
     var settingPrimaryColor: Color {
         get { self[PrimaryColorKey.self] }
         set { self[PrimaryColorKey.self] = newValue }
     }
-    
+
     /// For secondary labels.
     var settingSecondaryColor: Color {
         get { self[SecondaryColorKey.self] }
         set { self[SecondaryColorKey.self] = newValue }
     }
-    
+
     /// For buttons.
     var settingAccentColor: Color {
         get { self[AccentColorKey.self] }
         set { self[AccentColorKey.self] = newValue }
     }
-    
+
     /// For outer views.
     var settingBackgroundColor: Color {
         get { self[BackgroundColorKey.self] }
         set { self[BackgroundColorKey.self] = newValue }
     }
-    
+
     /// For inner views.
     var settingSecondaryBackgroundColor: Color {
         get { self[SecondaryBackgroundColorKey.self] }

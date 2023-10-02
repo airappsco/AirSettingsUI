@@ -1,9 +1,16 @@
+//
+//  SettingPickerView.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 struct SettingPickerView: View {
     @Environment(\.edgePadding) private var edgePadding
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
-    
+
     let icon: SettingIcon?
     let title: String
     let choices: [String]
@@ -13,9 +20,9 @@ struct SettingPickerView: View {
     let verticalPadding: CGFloat
     let horizontalPadding: CGFloat?
     let choicesConfiguration: SettingPicker.ChoicesConfiguration
-    
+
     @State private var isActive = false
-    
+
     var body: some View {
         switch choicesConfiguration.pickerDisplayMode {
         case .navigation:
@@ -26,19 +33,19 @@ struct SettingPickerView: View {
                     if let icon {
                         SettingIconView(icon: icon)
                     }
-                    
+
                     Text(title)
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, verticalPadding)
-                    
+
                     if choices.indices.contains(selectedIndex) {
                         let selectedChoice = choices[selectedIndex]
-                        
+
                         Text(selectedChoice)
                             .foregroundColor(foregroundColor ?? settingSecondaryColor)
                     }
-                    
+
                     Image(systemName: Constants.navigateIconName)
                         .foregroundColor(foregroundColor ?? settingSecondaryColor)
                 }
@@ -59,14 +66,14 @@ struct SettingPickerView: View {
                 }
                 .opacity(0)
             }
-            
+
         case .menu:
             HStack(spacing: horizontalSpacing) {
                 Text(title)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, verticalPadding)
-                
+
                 Picker("", selection: $selectedIndex) {
                     ForEach(Array(zip(choices.indices, choices)), id: \.1) { index, choice in
                         Text(choice).tag(index)
@@ -91,7 +98,7 @@ struct SettingPickerView: View {
                         Text(choice)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.vertical, choicesConfiguration.verticalPadding)
-                        
+
                         if index == selectedIndex {
                             Image(systemName: "checkmark")
                                 .foregroundColor(.accentColor)
@@ -110,7 +117,7 @@ struct SettingPickerChoicesView: View {
     let choices: [String]
     @Binding var selectedIndex: Int
     let choicesConfiguration: SettingPicker.ChoicesConfiguration
-    
+
     var body: some View {
         SettingPageView(title: title, navigationTitleDisplayMode: choicesConfiguration.pageNavigationTitleDisplayMode) {
             SettingGroupView(
@@ -131,7 +138,7 @@ struct SettingPickerChoicesView: View {
                             Text(choice)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.vertical, choicesConfiguration.verticalPadding)
-                            
+
                             if index == selectedIndex {
                                 Image(systemName: "checkmark")
                                     .foregroundColor(.accentColor)

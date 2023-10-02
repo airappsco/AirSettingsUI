@@ -1,10 +1,17 @@
+//
+//  SettingGroup.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 /**
  A group of `Setting`s.
  */
 public struct SettingGroup: AirSetting {
-    
+
     public let id: AnyHashable?
     let header: String?
     let footer: String?
@@ -15,7 +22,7 @@ public struct SettingGroup: AirSetting {
     let dividerLeadingMargin: CGFloat
     let dividerTrailingMargin: CGFloat
     let dividerColor: Color?
-    
+
     @SettingBuilder let tuple: SettingTupleView
 
     public init(
