@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct SettingPickerView: View {
     @Environment(\.edgePadding) private var edgePadding
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
@@ -112,6 +113,7 @@ struct SettingPickerView: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct SettingPickerChoicesView: View {
     let title: String
     let choices: [String]

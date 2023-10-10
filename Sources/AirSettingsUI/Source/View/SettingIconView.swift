@@ -9,6 +9,7 @@ import SwiftUI
 /**
  A view for displaying a `SettingIcon`.
  */
+@available(iOS 13.0, *)
 struct SettingIconView: View {
 
     let icon: SettingIcon

@@ -6,6 +6,8 @@
 //  Copyright © 2023 AirApps. All rights reserved.
 //
 import Foundation
+
+@available(iOS 15, *)
 extension Range<String.Index> {
     func attributedRange(for attributedString: AttributedString) -> Range<AttributedString.Index>? {
         let start = AttributedString.Index(lowerBound, within: attributedString)

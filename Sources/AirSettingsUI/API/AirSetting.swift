@@ -14,6 +14,7 @@ public protocol AirSetting {
     var id: AnyHashable? { get }
 }
 
+@available(iOS 15.0, *)
 public extension AirSetting {
     /**
      A unique identifier for the view.

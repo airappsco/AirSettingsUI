@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A multi-choice picker.
  */
+@available(iOS 15.0, *)
 public struct SettingPicker: View, AirSetting {
     public let id: AnyHashable?
     public let icon: SettingIcon?
@@ -111,6 +112,7 @@ public struct SettingPicker: View, AirSetting {
 }
 
 /// Convenience modifiers.
+@available(iOS 15.0, *)
 public extension SettingPicker {
     func pickerDisplayMode(_ pickerDisplayMode: DisplayMode) -> SettingPicker {
         var picker = self

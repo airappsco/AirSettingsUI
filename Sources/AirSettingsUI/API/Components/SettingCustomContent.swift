@@ -17,6 +17,7 @@ import SwiftUI
              .bold()
      }
  */
+@available(iOS 13.0, *)
 public struct SettingCustomContent: AirSetting {
     /**
      A unique ID for identifying this view.

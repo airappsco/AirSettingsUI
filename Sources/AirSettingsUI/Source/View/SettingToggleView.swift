@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct SettingToggleView: View {
 
     @Environment(\.edgePadding) private var edgePadding

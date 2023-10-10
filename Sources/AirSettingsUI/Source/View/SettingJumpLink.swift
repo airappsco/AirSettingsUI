@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A link to show in the search results, for jumping to specific page.
  */
+@available(iOS 15.0, *)
 struct SettingJumpLink: View {
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
     @Environment(\.edgePadding) private var edgePadding

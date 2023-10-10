@@ -11,6 +11,7 @@ import SwiftUI
 /**
  The main class for managing state in a `SettingStack`.
  */
+@available(iOS 15.0, *)
 public class SettingViewModel: ObservableObject {
 
     @Published public var searchText = ""
@@ -30,6 +31,7 @@ public class SettingViewModel: ObservableObject {
     }
 }
 
+@available(iOS 15.0, *)
 public extension SettingViewModel {
     func processSearch(searchText: String) {
         if searchText.isEmpty {

@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 13.0, *)
 public struct SettingSearchResult {
     public var sections: [Section]
 

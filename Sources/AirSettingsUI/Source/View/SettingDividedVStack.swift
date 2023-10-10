@@ -9,6 +9,7 @@ import SwiftUI
 
 /// A vertical stack that adds separators.
 /// From https://movingparts.io/variadic-views-in-swiftui
+@available(iOS 15.0, *)
 struct SettingDividedVStack<Content>: View where Content: View {
 
     let leadingMargin: CGFloat
@@ -41,6 +42,7 @@ struct SettingDividedVStack<Content>: View where Content: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct SettingDividedVStackLayout: _VariadicView_UnaryViewRoot {
 
     let leadingMargin: CGFloat

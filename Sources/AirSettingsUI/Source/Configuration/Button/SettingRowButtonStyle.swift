@@ -10,21 +10,28 @@ import SwiftUI
 /**
  A button style that highlights the row when tapped.
  */
+@available(iOS 13.0, *)
 struct SettingRowButtonStyle: ButtonStyle {
     @Environment(\.settingPrimaryColor) var settingPrimaryColor
 
     public func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .contentShape(Rectangle())
-            .background {
-                if configuration.isPressed {
-                    settingPrimaryColor
-                        .opacity(0.1)
+        if #available(iOS 15.0, *) {
+            configuration.label
+                .contentShape(Rectangle())
+                .background {
+                    if configuration.isPressed {
+                        settingPrimaryColor
+                            .opacity(0.1)
+                    }
                 }
-            }
+        } else {
+            configuration.label
+                .contentShape(Rectangle())
+        }
     }
 }
 
+@available(iOS 13.0, *)
 extension ButtonStyle where Self == SettingRowButtonStyle {
     static var row: SettingRowButtonStyle {
         SettingRowButtonStyle()

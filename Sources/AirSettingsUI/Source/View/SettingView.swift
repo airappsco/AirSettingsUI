@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct SettingView: View {
     let setting: AirSetting
     let isInitialPage: Bool

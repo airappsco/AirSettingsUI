@@ -10,6 +10,7 @@ import SwiftUI
 /**
  The main view for settings. Everything else goes in here.
  */
+@available(iOS 15.0, *)
 public struct SettingStack: View {
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
     @Environment(\.settingSecondaryBackgroundColor) private var settingSecondaryBackgroundColor

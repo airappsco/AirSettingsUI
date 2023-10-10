@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A simple text view.
  */
+@available(iOS 13.0, *)
 public struct SettingText: View, AirSetting {
     public let id: AnyHashable?
     public let title: String

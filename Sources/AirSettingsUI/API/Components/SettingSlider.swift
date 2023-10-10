@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A slider.
  */
+@available(iOS 13.0, *)
 public struct SettingSlider: View, AirSetting {
     public let id: AnyHashable?
     @Binding public var value: Double

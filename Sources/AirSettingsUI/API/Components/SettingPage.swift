@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A settings page.
  */
+@available(iOS 13.0, *)
 public struct SettingPage: AirSetting {
     public let id: AnyHashable?
     public let title: String
@@ -73,6 +74,7 @@ public struct SettingPage: AirSetting {
 }
 
 /// Convenience modifiers.
+@available(iOS 13.0, *)
 public extension SettingPage {
     func previewIcon(_ icon: String, color: Color = .blue) -> SettingPage {
         var page = self

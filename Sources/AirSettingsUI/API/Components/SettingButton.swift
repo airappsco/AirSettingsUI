@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A plain button.
  */
+@available(iOS 13.0, *)
 public struct SettingButton: View, AirSetting {
     public let id: AnyHashable?
     public var icon: SettingIcon?
@@ -53,6 +54,7 @@ public struct SettingButton: View, AirSetting {
     }
 }
 
+@available(iOS 13.0, *)
 public extension SettingButton {
     func icon(_ icon: String, color: Color = .blue) -> SettingButton {
         var button = self

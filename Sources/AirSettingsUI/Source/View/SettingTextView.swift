@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 13.0, *)
 struct SettingTextView: View {
 
     @Environment(\.edgePadding) private var edgePadding

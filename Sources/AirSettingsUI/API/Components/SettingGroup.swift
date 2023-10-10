@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A group of `Setting`s.
  */
+@available(iOS 13.0, *)
 public struct SettingGroup: AirSetting {
 
     public let id: AnyHashable?

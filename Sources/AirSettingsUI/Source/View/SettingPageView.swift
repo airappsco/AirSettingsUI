@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct SettingPageView<Content>: View where Content: View {
 
     @Environment(\.settingBackgroundColor) private var settingBackgroundColor
@@ -89,6 +90,7 @@ struct SettingPageView<Content>: View where Content: View {
     }
 }
 
+@available(iOS 13.0, *)
 struct SettingPagePreviewView: View {
     @Environment(\.edgePadding) private var edgePadding
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
@@ -144,6 +146,7 @@ struct SettingPagePreviewView: View {
     }
 }
 
+@available(iOS 13.0, *)
 extension SettingPage {
     /// generate all possibile paths
     func generatePaths() -> [SettingPath] {

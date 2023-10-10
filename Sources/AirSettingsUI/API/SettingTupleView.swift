@@ -20,6 +20,7 @@ public struct SettingTupleView: AirSetting {
     }
 }
 
+@available(iOS 13.0, *)
 public extension SettingTupleView {
 
     /// Flatten the tuple view and subgroups.

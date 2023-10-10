@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A simple toggle.
  */
+@available(iOS 15.0, *)
 public struct SettingToggle: View, AirSetting {
     public let id: AnyHashable?
     public let title: String

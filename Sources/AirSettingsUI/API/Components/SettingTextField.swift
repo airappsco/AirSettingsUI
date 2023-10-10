@@ -10,6 +10,7 @@ import SwiftUI
 /**
  A text field.
  */
+@available(iOS 13.0, *)
 public struct SettingTextField: View, AirSetting {
 
     public let id: AnyHashable?

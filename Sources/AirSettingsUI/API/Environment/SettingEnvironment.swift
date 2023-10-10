@@ -7,42 +7,57 @@
 //
 import SwiftUI
 
+@available(iOS 13.0, *)
 private struct EdgePaddingKey: EnvironmentKey {
     static let defaultValue: CGFloat = 20
 }
 
+@available(iOS 13.0, *)
 private struct PrimaryColorKey: EnvironmentKey {
     static let defaultValue = Color.primary
 }
 
+@available(iOS 13.0, *)
 private struct SecondaryColorKey: EnvironmentKey {
     static let defaultValue = Color.secondary
 }
 
+@available(iOS 13.0, *)
 private struct AccentColorKey: EnvironmentKey {
     static let defaultValue = Color.accentColor
 }
 
+@available(iOS 13.0, *)
 private struct BackgroundColorKey: EnvironmentKey {
     static let defaultValue: Color = {
+        if #available(iOS 15.0, *) {
 #if os(iOS)
-        return Color(uiColor: .systemGroupedBackground)
+            return Color(uiColor: .systemGroupedBackground)
 #else
-        return Color(nsColor: .windowBackgroundColor)
+            return Color(nsColor: .windowBackgroundColor)
 #endif
+        } else {
+            return .white
+        }
     }()
 }
 
+@available(iOS 13.0, *)
 private struct SecondaryBackgroundColorKey: EnvironmentKey {
     static let defaultValue: Color = {
+        if #available(iOS 15.0, *) {
 #if os(iOS)
-        return Color(uiColor: .secondarySystemGroupedBackground)
+            return Color(uiColor: .secondarySystemGroupedBackground)
 #else
-        return Color(nsColor: .textBackgroundColor)
+            return Color(nsColor: .textBackgroundColor)
 #endif
+        } else {
+            return .white
+        }
     }()
 }
 
+@available(iOS 13.0, *)
 public extension EnvironmentValues {
     /// Padding to line up with the navigation title.
     var edgePadding: CGFloat {
