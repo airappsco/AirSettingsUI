@@ -18,7 +18,7 @@ public struct SettingToggle: View, AirSetting {
     public let horizontalSpacing: CGFloat
     public let verticalPadding: CGFloat
     public let horizontalPadding: CGFloat?
-    public let icon: SettingIcon?
+    public var icon: SettingIcon?
 
     public init(
         id: AnyHashable? = nil,
@@ -47,5 +47,26 @@ public struct SettingToggle: View, AirSetting {
             verticalPadding: verticalPadding,
             horizontalPadding: horizontalPadding
         )
+    }
+}
+
+@available(iOS 15.0, *)
+public extension SettingToggle {
+    func icon(_ icon: String, color: Color = .blue) -> SettingToggle {
+        var toggle = self
+        toggle.icon = .system(icon: icon, backgroundColor: color)
+        return toggle
+    }
+
+    func icon(_ icon: String, foregroundColor: Color = .white, backgroundColor: Color = .blue) -> SettingToggle {
+        var toggle = self
+        toggle.icon = .system(icon: icon, foregroundColor: foregroundColor, backgroundColor: backgroundColor)
+        return toggle
+    }
+
+    func icon(icon: SettingIcon) -> SettingToggle {
+        var toggle = self
+        toggle.icon = icon
+        return toggle
     }
 }
