@@ -22,7 +22,7 @@ public struct SettingToggle: View, AirSetting {
 
     public init(
         id: AnyHashable? = nil,
-        icon: SettingIcon?,
+        icon: SettingIcon? = nil,
         title: String,
         isOn: Binding<Bool>,
         horizontalSpacing: CGFloat = Constants.horizontalSpacing,
