@@ -18,9 +18,11 @@ public struct SettingToggle: View, AirSetting {
     public let horizontalSpacing: CGFloat
     public let verticalPadding: CGFloat
     public let horizontalPadding: CGFloat?
+    public let icon: SettingIcon?
 
     public init(
         id: AnyHashable? = nil,
+        icon: SettingIcon?,
         title: String,
         isOn: Binding<Bool>,
         horizontalSpacing: CGFloat = Constants.horizontalSpacing,
@@ -28,6 +30,7 @@ public struct SettingToggle: View, AirSetting {
         horizontalPadding: CGFloat? = nil
     ) {
         self.id = id
+        self.icon = icon
         self.title = title
         self._isOn = isOn
         self.horizontalSpacing = horizontalSpacing
@@ -37,6 +40,7 @@ public struct SettingToggle: View, AirSetting {
 
     public var body: some View {
         SettingToggleView(
+            icon: icon,
             title: title,
             isOn: $isOn,
             horizontalSpacing: horizontalSpacing,
