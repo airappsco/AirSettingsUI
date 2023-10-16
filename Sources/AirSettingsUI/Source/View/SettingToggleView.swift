@@ -14,17 +14,20 @@ struct SettingToggleView: View {
     let title: String
     @Binding var isOn: Bool
 
+    let icon: SettingIcon?
     let horizontalSpacing: CGFloat
     let verticalPadding: CGFloat
     let horizontalPadding: CGFloat?
 
     init(
+        icon: SettingIcon? = nil,
         title: String,
         isOn: Binding<Bool>,
         horizontalSpacing: CGFloat = Constants.horizontalSpacing,
         verticalPadding: CGFloat = Constants.verticalPadding,
         horizontalPadding: CGFloat? = .none
     ) {
+        self.icon = icon
         self.title = title
         _isOn = isOn
         self.horizontalSpacing = horizontalSpacing
@@ -34,6 +37,10 @@ struct SettingToggleView: View {
 
     var body: some View {
         HStack(spacing: horizontalSpacing) {
+            if let icon {
+                SettingIconView(icon: icon)
+            }
+            
             Text(title)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
