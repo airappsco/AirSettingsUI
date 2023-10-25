@@ -10,15 +10,15 @@ import SwiftUI
  A view for displaying a `SettingIcon`.
  */
 @available(iOS 13.0, *)
-struct SettingIconView: View {
+public struct SettingIconView: View {
 
     let icon: SettingIcon
 
-    init(icon: SettingIcon) {
+    public init(icon: SettingIcon) {
         self.icon = icon
     }
 
-    var body: some View {
+    public var body: some View {
         switch icon {
         case .system(let icon, let foregroundColor, let backgroundColor):
             Image(systemName: icon)
