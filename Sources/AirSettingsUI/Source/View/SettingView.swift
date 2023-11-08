@@ -67,7 +67,8 @@ struct SettingView: View {
                     verticalPadding: page.verticalPadding,
                     backgroundColor: page.backgroundColor,
                     navigationTitleDisplayMode: page.navigationTitleDisplayMode,
-                    isInitialPage: isInitialPage
+                    isInitialPage: isInitialPage,
+                    barDoneButton: page.barDoneButton
                 ) {
                     ForEach(page.tuple.settings, id: \.identifier) { setting in
                         SettingView(setting: setting, isPagePreview: true)

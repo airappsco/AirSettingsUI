@@ -18,6 +18,7 @@ struct SettingPageView<Content>: View where Content: View {
     let backgroundColor: Color?
     let navigationTitleDisplayMode: SettingPage.NavigationTitleDisplayMode
     let isInitialPage: Bool
+    let barDoneButton: AnyView?
 
     @ViewBuilder let content: Content
 
@@ -28,6 +29,7 @@ struct SettingPageView<Content>: View where Content: View {
         backgroundColor: Color? = nil,
         navigationTitleDisplayMode: SettingPage.NavigationTitleDisplayMode = .inline,
         isInitialPage: Bool = false,
+        barDoneButton: AnyView? = nil,
         content: () -> Content
     ) {
         self.title = title
@@ -36,6 +38,7 @@ struct SettingPageView<Content>: View where Content: View {
         self.backgroundColor = backgroundColor
         self.navigationTitleDisplayMode = navigationTitleDisplayMode
         self.isInitialPage = isInitialPage
+        self.barDoneButton = barDoneButton
         self.content = content()
     }
 
@@ -76,6 +79,11 @@ struct SettingPageView<Content>: View where Content: View {
             .scrollDismissesKeyboard(.interactively)
             .background(backgroundColor ?? settingBackgroundColor)
             .navigationTitle(title)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    barDoneButton
+                }
+            }
         } else {
             ScrollView {
                 VStack(alignment: .leading, spacing: spacing) {
@@ -86,6 +94,11 @@ struct SettingPageView<Content>: View where Content: View {
             }
             .background(backgroundColor ?? settingBackgroundColor)
             .navigationTitle(title)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    barDoneButton
+                }
+            }
         }
     }
 }

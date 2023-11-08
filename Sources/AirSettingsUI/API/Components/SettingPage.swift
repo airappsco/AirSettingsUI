@@ -20,6 +20,7 @@ public struct SettingPage: AirSetting {
     public let backgroundColor: Color?
     public let navigationTitleDisplayMode: NavigationTitleDisplayMode
     public var previewConfiguration: PreviewConfiguration
+    public let barDoneButton: AnyView?
     @SettingBuilder public let tuple: SettingTupleView
 
     public init(
@@ -31,6 +32,7 @@ public struct SettingPage: AirSetting {
         backgroundColor: Color? = nil,
         navigationTitleDisplayMode: SettingPage.NavigationTitleDisplayMode = NavigationTitleDisplayMode.automatic,
         previewConfiguration: SettingPage.PreviewConfiguration = PreviewConfiguration(),
+        barDoneButton: AnyView? = nil,
         @SettingBuilder tuple: () -> SettingTupleView
     ) {
         self.id = id
@@ -41,6 +43,7 @@ public struct SettingPage: AirSetting {
         self.backgroundColor = backgroundColor
         self.navigationTitleDisplayMode = navigationTitleDisplayMode
         self.previewConfiguration = previewConfiguration
+        self.barDoneButton = barDoneButton
         self.tuple = tuple()
     }
 
