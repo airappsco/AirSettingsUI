@@ -1,11 +1,18 @@
+//
+//  SettingGroupView.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 struct SettingGroupView<Content: View>: View {
-    
+
     @Environment(\.edgePadding) private var edgePadding
     @Environment(\.settingSecondaryBackgroundColor) private var settingSecondaryBackgroundColor
     @Environment(\.settingSecondaryColor) private var settingSecondaryColor
-    
+
     let icon: SettingIcon?
     let header: String?
     let footer: String?
@@ -17,9 +24,9 @@ struct SettingGroupView<Content: View>: View {
     let dividerLeadingMargin: CGFloat
     let dividerTrailingMargin: CGFloat
     let dividerColor: Color?
-    
+
     @ViewBuilder public let content: () -> Content
-    
+
     init(
         icon: SettingIcon? = nil,
         header: String? = nil,
@@ -47,7 +54,7 @@ struct SettingGroupView<Content: View>: View {
         self.dividerColor = dividerColor
         self.content = content
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if icon != nil || header != nil {
@@ -56,7 +63,7 @@ struct SettingGroupView<Content: View>: View {
                         SettingIconView(icon: icon)
                             .scaleEffect(0.6)
                     }
-                    
+
                     if let header {
                         Text(header)
                             .textCase(.uppercase)
@@ -68,7 +75,7 @@ struct SettingGroupView<Content: View>: View {
                 .padding(.horizontal, backgroundCornerRadius)
                 .padding(.bottom, 6)
             }
-            
+
             SettingDividedVStack(
                 leadingMargin: dividerLeadingMargin,
                 trailingMargin: dividerTrailingMargin,
@@ -80,7 +87,7 @@ struct SettingGroupView<Content: View>: View {
             .mask {
                 RoundedRectangle(cornerRadius: backgroundCornerRadius, style: .continuous)
             }
-            
+
             if let footer {
                 VStack {
                     if allowAttributedFooter {

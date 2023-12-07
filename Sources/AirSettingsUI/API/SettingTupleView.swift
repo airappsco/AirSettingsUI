@@ -1,3 +1,10 @@
+//
+//  SettingTupleView.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 /**
@@ -6,7 +13,7 @@ import SwiftUI
 public struct SettingTupleView: AirSetting {
     public let id: AnyHashable?
     public let settings: [AirSetting]
-    
+
     public init(id: AnyHashable? = nil, settings: [AirSetting]) {
         self.id = id
         self.settings = settings
@@ -14,7 +21,7 @@ public struct SettingTupleView: AirSetting {
 }
 
 public extension SettingTupleView {
-    
+
     /// Flatten the tuple view and subgroups.
     var flattened: [AirSetting] {
         var flattened = [AirSetting]()

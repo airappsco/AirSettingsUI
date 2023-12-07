@@ -23,6 +23,12 @@
 
 <img width="1041" alt="Screenshot 2023-08-25 at 1 57 45 PM" src="https://github.com/airappsco/AirSettingsUI/assets/97190276/077533de-5cd9-42fb-b3ff-db3832df8bf5">
 
+## 📋 Requirements
+
+ - iOS 12.0+ (if you use only UIKit/AppKit)
+ - iOS 15.0+ (if you use it in SwiftUI)
+ - Swift 5.0+
+
 ## Installation
 
 Setting is available via the [Swift Package Manager](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). Requires iOS 15+ or macOS Monterey and up.
@@ -348,6 +354,10 @@ struct ContentView: View {
 </td>
 </tr>
 </table>
+
+## Validation
+
+ This framework has been validated and tested through integration into our app [Translate Now](https://apps.apple.com/us/app/translate-now-translator/id1348028646).
 
 ### Reference
 This project is based of [Setting](https://github.com/aheze/Setting) created by [Andrew Zheng](https://github.com/aheze) AKA [Aheze](https://github.com/aheze). We didn't forked or adopted his project due to the requirement of AirApps distribuiting it's own open source projects and enforcing our own coding style over the project. All kudos to the creator of this repository. 

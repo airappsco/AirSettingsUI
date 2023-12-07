@@ -1,3 +1,11 @@
+//
+//  AirSetting.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 8/15/23.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
+
 import SwiftUI
 /**
  The base protocol for views shown in the `SettingBuilder`.
@@ -14,10 +22,8 @@ public extension AirSetting {
         if let id {
             return id
         }
-        
         return textIdentifier
     }
-    
     /**
      The identifier generated from the setting's title.
      */
@@ -42,12 +48,12 @@ public extension AirSetting {
         case let tuple as SettingTupleView:
             return tuple.flattened.compactMap { $0.textIdentifier }.joined()
         case let customView as SettingCustomContent:
-            return customView.titleForSearch ?? "Custom"
+            return customView.titleForSearch
         default:
             return nil
         }
     }
-    
+
     /**
      Text for searching.
      */

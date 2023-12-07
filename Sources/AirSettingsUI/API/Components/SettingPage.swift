@@ -1,3 +1,10 @@
+//
+//  SettingPage.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 /**
@@ -75,7 +82,11 @@ public extension SettingPage {
 
     func previewIcon(_ icon: String, foregroundColor: Color = .white, backgroundColor: Color = .blue) -> SettingPage {
         var page = self
-        page.previewConfiguration.icon = .system(icon: icon, foregroundColor: foregroundColor, backgroundColor: backgroundColor)
+        page.previewConfiguration.icon = .system(
+            icon: icon,
+            foregroundColor: foregroundColor,
+            backgroundColor: backgroundColor
+        )
         return page
     }
 

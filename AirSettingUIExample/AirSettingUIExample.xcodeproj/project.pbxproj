@@ -12,7 +12,7 @@
 		448F475D2A8BC3C60033C5E5 /* AirSettingUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F475C2A8BC3C60033C5E5 /* AirSettingUIExampleApp.swift */; };
 		448F47612A8BC3C60033C5E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448F47602A8BC3C60033C5E5 /* Assets.xcassets */; };
 		448F47642A8BC3C60033C5E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448F47632A8BC3C60033C5E5 /* Preview Assets.xcassets */; };
-		448F476E2A8BC4070033C5E5 /* AirSettingsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 448F476D2A8BC4070033C5E5 /* AirSettingsUI */; };
+		44D9198C2AC5FF5000C041C5 /* AirSettingsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 44D9198B2AC5FF5000C041C5 /* AirSettingsUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,7 @@
 		448F475C2A8BC3C60033C5E5 /* AirSettingUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSettingUIExampleApp.swift; sourceTree = "<group>"; };
 		448F47602A8BC3C60033C5E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		448F47632A8BC3C60033C5E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		448F476B2A8BC3FB0033C5E5 /* AirSettingsUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AirSettingsUI; path = ../..; sourceTree = "<group>"; };
+		44D9198A2AC5FEEE00C041C5 /* AirSettingsUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AirSettingsUI; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448F476E2A8BC4070033C5E5 /* AirSettingsUI in Frameworks */,
+				44D9198C2AC5FF5000C041C5 /* AirSettingsUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 		448F476A2A8BC3FB0033C5E5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				448F476B2A8BC3FB0033C5E5 /* AirSettingsUI */,
+				44D9198A2AC5FEEE00C041C5 /* AirSettingsUI */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -100,6 +100,7 @@
 				448F47552A8BC3C60033C5E5 /* Sources */,
 				448F47562A8BC3C60033C5E5 /* Frameworks */,
 				448F47572A8BC3C60033C5E5 /* Resources */,
+				44459A372AC4829A00028A6C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -107,7 +108,7 @@
 			);
 			name = AirSettingUIExample;
 			packageProductDependencies = (
-				448F476D2A8BC4070033C5E5 /* AirSettingsUI */,
+				44D9198B2AC5FF5000C041C5 /* AirSettingsUI */,
 			);
 			productName = AirSettingUIExample;
 			productReference = 448F47592A8BC3C60033C5E5 /* AirSettingUIExample.app */;
@@ -157,6 +158,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44459A372AC4829A00028A6C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${SRCROOT}/../\"\n./Submodules/WeTransfer-iOS-CI/BuildTools/swiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		448F47552A8BC3C60033C5E5 /* Sources */ = {
@@ -309,6 +331,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.airapps.AirSettingUIExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,6 +363,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.airapps.AirSettingUIExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -368,7 +396,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		448F476D2A8BC4070033C5E5 /* AirSettingsUI */ = {
+		44D9198B2AC5FF5000C041C5 /* AirSettingsUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AirSettingsUI;
 		};

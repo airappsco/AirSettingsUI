@@ -1,14 +1,21 @@
+//
+//  SettingDividedVStack.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import SwiftUI
 
 /// A vertical stack that adds separators.
 /// From https://movingparts.io/variadic-views-in-swiftui
 struct SettingDividedVStack<Content>: View where Content: View {
-    
+
     let leadingMargin: CGFloat
     let trailingMargin: CGFloat
     let dividerColor: Color?
     @ViewBuilder let content: Content
-    
+
     init(
         leadingMargin: CGFloat = 0,
         trailingMargin: CGFloat = 0,
@@ -20,7 +27,7 @@ struct SettingDividedVStack<Content>: View where Content: View {
         self.dividerColor = dividerColor
         self.content = content()
     }
-    
+
     var body: some View {
         _VariadicView.Tree(
             SettingDividedVStackLayout(
@@ -35,24 +42,24 @@ struct SettingDividedVStack<Content>: View where Content: View {
 }
 
 struct SettingDividedVStackLayout: _VariadicView_UnaryViewRoot {
-    
+
     let leadingMargin: CGFloat
     let trailingMargin: CGFloat
     let dividerColor: Color?
-    
+
     internal init(leadingMargin: CGFloat, trailingMargin: CGFloat, dividerColor: Color? = nil) {
         self.leadingMargin = leadingMargin
         self.trailingMargin = trailingMargin
         self.dividerColor = dividerColor
     }
-    
+
     @ViewBuilder func body(children: _VariadicView.Children) -> some View {
         let last = children.last?.id
-        
+
         VStack(spacing: 0) {
             ForEach(children) { child in
                 child
-                
+
                 if child.id != last {
                     Divider()
                         .opacity(dividerColor == nil ? 1 : 0)

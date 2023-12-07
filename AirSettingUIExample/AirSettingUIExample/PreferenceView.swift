@@ -1,3 +1,10 @@
+//
+//  PreferenceView.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import AirSettingsUI
 import SwiftUI
 
@@ -18,10 +25,10 @@ class PreferencesViewModel: ObservableObject {
 
 struct PreferencesView: View {
     @StateObject var model = PreferencesViewModel()
-    
+
     var body: some View {
         /// Ff you want to show the search bar, just change `isSearchable` to true.
-        
+
         SettingStack(isSearchable: true) {
             SettingPage(title: "Preferences") {
                 SettingGroup {
@@ -30,7 +37,7 @@ struct PreferencesView: View {
                             VStack(spacing: 10) {
                                 Image(systemName: "gearshape.fill")
                                     .font(.largeTitle)
-                                
+
                                 Text("Welcome to Setting!")
                                     .font(.headline)
                             }
@@ -42,49 +49,33 @@ struct PreferencesView: View {
                             .cornerRadius(12)
                             .padding(.horizontal, 16)
                         }
-                        
+
                         SettingGroup {
                             SettingButton(title: "View on GitHub") {
                                 if let url = URL(string: "https://github.com/airappsco") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
-                            
+
                             SettingButton(title: "Instagram") {
                                 if let url = URL(string: "https://www.instagram.com/airappsco") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
-                            
+
                             SettingButton(title: "Twitter") {
                                 if let url = URL(string: "https://twitter.com/airappsco") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
-                            
+
                             SettingButton(title: "LinkedIn") {
                                 if let url = URL(string: "https://www.linkedin.com/company/airapps") {
-#if os(iOS)
                                     UIApplication.shared.open(url)
-#else
-                                    NSWorkspace.shared.open(url)
-#endif
                                 }
                             }
                         }
-                        
+
                         SettingGroup {
                             SettingPicker(
                                 title: "Language",
@@ -101,18 +92,18 @@ struct PreferencesView: View {
                                 selectedIndex: $model.languageIndex
                             )
                         }
-                        
+
                         SettingGroup(header: "Brightness", footer: "Selected brightness: \(Int(model.brightness))") {
                             SettingSlider(value: $model.brightness, range: 0 ... 100, minimumImage: Image(systemName: "sun.min"), maximumImage: Image(systemName: "sun.max"))
                         }
-                        
+
                         SettingGroup(header: "Super customizable!") {
                             SettingToggle(title: "Turbo Mode", isOn: $model.turboMode)
-                            
+
                             if model.turboMode {
                                 SettingText(title: "Turbo mode is on!", foregroundColor: .secondary)
                             }
-                            
+
                             SettingButton(title: "Show Alert") {
                                 model.showingAlert = true
                             }
@@ -120,7 +111,7 @@ struct PreferencesView: View {
                     }
                     .previewIcon(icon: .system(icon: "gear", backgroundColor: Color(hex: 0x006DC1)))
                 }
-                
+
                 SettingGroup {
                     SettingPage(
                         title: "Privacy",
@@ -137,7 +128,7 @@ struct PreferencesView: View {
                             SettingToggle(title: "Download Ads", isOn: .constant(true))
                             SettingToggle(title: "Show Ads", isOn: .constant(true))
                         }
-                        
+
                         SettingGroup {
                             SettingPage(title: "Advanced") {
                                 SettingGroup(footer: "Tap to sell all your data to Google.") {
@@ -148,12 +139,12 @@ struct PreferencesView: View {
                             }
                         }
                     }
-                    
+
                     SettingPage(title: "Notifications") {
                         SettingGroup(footer: model.enableNotifications ? nil : "Turn on to see more settings.") {
                             SettingToggle(title: "Enable Notifications", isOn: $model.enableNotifications)
                         }
-                        
+
                         if model.enableNotifications {
                             SettingGroup {
                                 SettingPicker(
@@ -167,7 +158,7 @@ struct PreferencesView: View {
                                 )
                                 .pickerDisplayMode(.navigation)
                             }
-                            
+
                             SettingGroup {
                                 SettingPicker(
                                     title: "Frequency (Menu)",
@@ -180,7 +171,7 @@ struct PreferencesView: View {
                                 )
                                 .pickerDisplayMode(.menu)
                             }
-                            
+
                             SettingGroup(header: "Frequency (Inline)") {
                                 SettingPicker(
                                     title: "Frequency (Inline)",
@@ -193,7 +184,7 @@ struct PreferencesView: View {
                                 )
                                 .pickerDisplayMode(.inline)
                             }
-                            
+
                             SettingGroup {
                                 SettingToggle(title: "Send Promotional Emails", isOn: $model.notificationPromo)
                                 SettingToggle(title: "Send Product Updates", isOn: $model.notificationUpdates)
@@ -201,7 +192,7 @@ struct PreferencesView: View {
                         }
                     }
                     .previewIcon(icon: .system(icon: "bell.badge.fill", backgroundColor: Color(hex: 0xFF2300)))
-                    
+
                     SettingPage(title: "Themes") {
                         SettingCustomContent(id: "Color Picker Preview") {
                             VStack {
@@ -218,17 +209,17 @@ struct PreferencesView: View {
                             .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 6)
                             .padding(.horizontal, 16)
                         }
-                        
+
                         SettingGroup {
                             SettingText(title: "Choose a Color")
-                            
+
                             SettingCustomContent(id: "Color Picker") {
                                 let binding = Binding {
                                     Color(hex: model.color)
                                 } set: { newValue in
                                     model.color = Int(newValue.hex)
                                 }
-                                
+
                                 ColorPicker("Color", selection: binding)
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 10)
@@ -236,7 +227,7 @@ struct PreferencesView: View {
                         }
                     }
                     .previewIcon(icon: .system(icon: "paintbrush.fill", backgroundColor: Color(hex: model.color)))
-                    
+
                     SettingPage(title: "Extras", selectedChoice: "Hello, world!") {
                         SettingGroup {
                             SettingButton(title: "Hello, world!") {
@@ -244,7 +235,7 @@ struct PreferencesView: View {
                             }
                             .icon(icon: .system(icon: "ellipsis", backgroundColor: Color.teal))
                         }
-                        
+
                         SettingGroup {
                             SettingButton(title: ":)") {
                                 print(":) pressed!")
@@ -255,7 +246,7 @@ struct PreferencesView: View {
                     }
                     .previewIcon(icon: .system(icon: "ellipsis", backgroundColor: Color.teal))
                 }
-                
+
                 SettingGroup {
                     SettingPicker(
                         title: "App Icon",
@@ -266,7 +257,7 @@ struct PreferencesView: View {
                         ],
                         selectedIndex: $model.iconIndex
                     )
-                    
+
                     SettingPicker(
                         title: "Mode",
                         choices: [
@@ -277,11 +268,11 @@ struct PreferencesView: View {
                         selectedIndex: $model.modeIndex
                     )
                 }
-                
+
                 SettingGroup {
                     SettingTextField(placeholder: "Enter text here", text: $model.text)
                 }
-                
+
                 SettingCustomContent(id: "Custom Footer", titleForSearch: "Welcome to Setting!") {
                     Text("Welcome to Setting!")
                         .foregroundColor(.white)
