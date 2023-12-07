@@ -31,7 +31,7 @@
 
 ## Installation
 
-Setting is available via the [Swift Package Manager](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). Requires iOS 15+ or macOS Monterey and up.
+Settings is available via the [Swift Package Manager](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app). Requires iOS 15+ or macOS Monterey and up.
 
 SSH
 ```
@@ -360,4 +360,4 @@ struct ContentView: View {
  This framework has been validated and tested through integration into our app [Translate Now](https://apps.apple.com/us/app/translate-now-translator/id1348028646).
 
 ### Reference
-This project is based of [Setting](https://github.com/aheze/Setting) created by [Andrew Zheng](https://github.com/aheze) AKA [Aheze](https://github.com/aheze). We didn't forked or adopted his project due to the requirement of AirApps distribuiting it's own open source projects and enforcing our own coding style over the project. All kudos to the creator of this repository. 
+This project is based on [Setting](https://github.com/aheze/Setting) created by [Andrew Zheng](https://github.com/aheze) AKA [Aheze](https://github.com/aheze).
