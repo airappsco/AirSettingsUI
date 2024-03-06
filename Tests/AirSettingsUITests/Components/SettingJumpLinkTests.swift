@@ -9,6 +9,7 @@
 import XCTest
 
 // swiftlint:disable implicitly_unwrapped_optional
+@available(iOS 15.0, *)
 final class SettingJumpLinkTests: XCTestCase {
 
     private var sut: SettingJumpLink!

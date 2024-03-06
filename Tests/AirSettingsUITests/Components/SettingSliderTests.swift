@@ -9,6 +9,7 @@
 import XCTest
 
 // swiftlint:disable implicitly_unwrapped_optional
+@available(iOS 13.0, *)
 final class SettingSliderTests: XCTestCase {
 
     private var sut: SettingSlider!

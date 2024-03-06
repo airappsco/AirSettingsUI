@@ -9,6 +9,7 @@
 import SwiftUI
 import XCTest
 
+@available(iOS 15.0, *)
 final class SettingBuilderTests: XCTestCase {
 
     func testSettingBuilderWithSingleSetting() {

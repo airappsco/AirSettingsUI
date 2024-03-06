@@ -10,6 +10,7 @@ import SwiftUI
 import XCTest
 
 // swiftlint:disable implicitly_unwrapped_optional
+@available(iOS 13.0, *)
 final class SettingIconViewTests: XCTestCase {
 
     private var sut: SettingIconView!

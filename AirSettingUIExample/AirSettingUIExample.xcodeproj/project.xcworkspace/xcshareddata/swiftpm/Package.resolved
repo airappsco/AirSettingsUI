@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "airfonts",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:airappsco/AirFonts.git",
+      "state" : {
+        "branch" : "feature/ios-12-support",
+        "revision" : "6471cc7778e763d93a4a30db6041cd20706d4d3c"
+      }
+    },
+    {
       "identity" : "swift-snapshot-testing",
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:pointfreeco/swift-snapshot-testing.git",

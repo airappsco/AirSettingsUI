@@ -15,11 +15,15 @@ let package = Package(
             targets: ["AirSettingsUI"])
     ],
     dependencies: [
-        .package(url: "git@github.com:pointfreeco/swift-snapshot-testing.git", from: "1.11.1")
+        .package(url: "git@github.com:pointfreeco/swift-snapshot-testing.git", from: "1.11.1"),
+        .package(url: "git@github.com:airappsco/AirFonts.git", branch: "feature/ios-12-support")
     ],
     targets: [
         .target(
-            name: "AirSettingsUI"
+            name: "AirSettingsUI",
+            dependencies: [
+                .product(name: "AirFonts", package: "AirFonts")
+            ]
         ),
         .testTarget(
             name: "AirSettingsUITests",

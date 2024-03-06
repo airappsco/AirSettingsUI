@@ -7,6 +7,7 @@
 //
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension View {
     var asUIKitView: UIView {
         UIHostingController(rootView: self).view
