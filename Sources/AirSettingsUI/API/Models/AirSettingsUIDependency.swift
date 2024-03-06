@@ -30,7 +30,7 @@ public class AirSettingsUIDependency {
         self.shareAppURL = shareAppURL
     }
     
-    func setup(
+    public func setup(
         delegate: AirSettingsUIDelegate
     ) throws {
         guard !isSetup else {
