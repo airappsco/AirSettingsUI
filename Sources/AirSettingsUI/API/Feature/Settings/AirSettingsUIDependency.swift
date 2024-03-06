@@ -43,15 +43,18 @@ public class AirSettingsUIDependency {
     /// Configures the `AirSettingsUIDependency` with a delegate to handle UI related events.
     /// This method can only be called once per instance as indicated by the `isSetup` flag.
     ///
+    /// - Parameter shareAppURL: An optional URL for sharing the app. Defaults to nil.
     /// - Parameter delegate: The `AirSettingsUIDelegate` that will handle the UI related events.
     ///
     /// - Throws: `AirSettingsUIDependencyError.alreadySetup` if the `setup` method has already been called.
     public func setup(
+        shareAppURL: URL? = nil,
         delegate: AirSettingsUIDelegate
     ) throws {
         guard !isSetup else {
             throw AirSettingsUIDependencyError.alreadySetup
         }
+        self.shareAppURL = shareAppURL
         self.delegate = delegate
         isSetup = true
     }
