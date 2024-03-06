@@ -1,5 +1,26 @@
+//
+//  AirSettingsUI.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import AirFonts
 import SwiftUI
+
+// swiftlint:disable class_delegate_protocol
+
+@available(iOS 15.0, *)
+public protocol AirSettingsUIDelegate {
+    /// Set the delegate of AirSettingsUIDependency for AUM calls
+    func setup()
+    /// Gets the user subsription status from AUM
+    var isSubscriber: Bool { get }
+    /// Showing terms and conditions from AUM
+    func showTermsAndPrivacy(target: UIViewController)
+    // Showing settings paywall from AUM
+    func openAirAppsOne()
+}
 
 @available(iOS 15.0, *)
 public struct AirSettingsUI: View {
@@ -122,3 +143,4 @@ struct AirSettings_Previews: PreviewProvider {
         }
     }
 }
+// swiftlint:enable class_delegate_protocol

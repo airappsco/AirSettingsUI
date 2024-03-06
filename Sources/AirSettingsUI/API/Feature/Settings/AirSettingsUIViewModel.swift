@@ -1,3 +1,10 @@
+//
+//  AirSettingsUIViewModel.swift
+//  AirSettingUI
+//
+//  Created by iOS Developer on 2023-09-28.
+//  Copyright © 2023 AirApps. All rights reserved.
+//
 import Foundation
 import SwiftUI
 
@@ -5,13 +12,17 @@ import SwiftUI
 public final class AirSettingsUIViewModel: ObservableObject {
     
     var isSubscriber: Bool {
-       // TODO: Air.shared.isSubscriber()
-        return true
+        do {
+            return try AirSettingsUIDependency.shared.isSubscriber()
+        } catch {
+           debugPrint("⚠️ AUM delegate produced an error:", error.localizedDescription)
+           return false
+        }
     }
+
     var currentIconName: String {
         application.alternateIconName ?? "AppIcon0"
     }
-    
     var currentVersion: String? {
         guard let version: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return .none }
         return "V-\(version)"
@@ -32,10 +43,18 @@ public final class AirSettingsUIViewModel: ObservableObject {
     
     func openTermsAndPrivacy() {
         guard let viewController = UIApplication.shared.keyWindowPresentedController else { return }
-        // TODO:  AirTermsAndPrivacyManager.showTermsAndPrivacy(target: viewController)
+        do {
+            try AirSettingsUIDependency.shared.showTermsAndPrivacy(target: viewController)
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
     }
     
     func openAirAppsOne() {
-       // TODO: Air.shared.displaySettingsPW { _ in }
+        do {
+            try AirSettingsUIDependency.shared.openAirAppsOne()
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
     }
 }

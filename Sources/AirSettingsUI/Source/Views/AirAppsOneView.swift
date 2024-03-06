@@ -27,7 +27,11 @@ public struct AirAppsOneView: View {
             Spacer()
 
             Button {
-                // TODO: Air.shared.displaySettingsPW { _ in }
+                do {
+                    try AirSettingsUIDependency.shared.openAirAppsOne()
+                } catch {
+                    debugPrint(error.localizedDescription)
+                }
             } label: {
                 Text.style(.callout, weight: .bold, content: Strings.joinUs)
                     .frame(maxWidth: .infinity)
