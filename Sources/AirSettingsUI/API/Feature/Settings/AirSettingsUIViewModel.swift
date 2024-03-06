@@ -37,8 +37,10 @@ public final class AirSettingsUIViewModel: ObservableObject {
     }
     
     func share() {
-        let activityVC = UIActivityViewController(activityItems: [airSettingsDependency.shareAppURL], applicationActivities: nil)
-        application.keyWindowPresentedController?.present(activityVC, animated: true, completion: nil)
+        if let shareAppURL = airSettingsDependency.shareAppURL {
+            let activityVC = UIActivityViewController(activityItems: [shareAppURL], applicationActivities: nil)
+            application.keyWindowPresentedController?.present(activityVC, animated: true, completion: nil)
+        }
     }
     
     func openTermsAndPrivacy() {
