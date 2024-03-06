@@ -22,6 +22,8 @@ public protocol AirSettingsUIDelegate {
     func openAirAppsOne()
 }
 
+
+/// Default Settings View - applications are `not` required to use it
 @available(iOS 15.0, *)
 public struct AirSettingsUI: View {
     
