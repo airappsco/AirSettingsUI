@@ -9,6 +9,7 @@ import SnapshotTesting
 import SwiftUI
 import XCTest
 
+@available(iOS 13.0, *)
 extension XCTestCase {
     func assert<T: View>(
         view: T,

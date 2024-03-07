@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-//@main
-//struct AirSettingUIExampleApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            PreferencesView()
-//        }
-//    }
-//}
+@main
+struct AirSettingUIExampleApp: App {
+    var body: some Scene {
+        WindowGroup {
+            PreferencesView()
+        }
+    }
+}

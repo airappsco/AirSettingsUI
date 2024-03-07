@@ -10,6 +10,7 @@
 import SwiftUI
 import XCTest
 
+@available(iOS 15.0, *)
 final class AirSettingsTests: XCTestCase {
     func test_textIdentifier_whenSettingText() {
         XCTAssertEqual(SettingText(title: "Text").textIdentifier, "Text")
@@ -116,6 +117,7 @@ final class AirSettingsTests: XCTestCase {
     }
 }
 
+@available(iOS 15.0, *)
 extension AirSettingsTests {
     struct AirSettingsBehaviorCheck: AirSetting {
         var id: AnyHashable?
