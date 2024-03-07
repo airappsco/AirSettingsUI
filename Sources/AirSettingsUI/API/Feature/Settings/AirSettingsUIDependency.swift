@@ -70,21 +70,21 @@ protocol AirSettingsUIDependencyProtocol {
 @available(iOS 15.0, *)
 extension AirSettingsUIDependency: AirSettingsUIDependencyProtocol {
     public func isSubscriber() throws -> Bool {
-        guard !isSetup, let delegate else {
+        guard isSetup, let delegate else {
             throw AirSettingsUIDependencyError.notSetup
         }
         return delegate.isSubscriber
     }
     
     public func showTermsAndPrivacy(target: UIViewController) throws {
-        guard !isSetup, let delegate  else {
+        guard isSetup, let delegate  else {
             throw AirSettingsUIDependencyError.notSetup
         }
         delegate.showTermsAndPrivacy(target: target)
     }
     
     public func openAirAppsOne() throws {
-        guard !isSetup, let delegate  else {
+        guard isSetup, let delegate  else {
             throw AirSettingsUIDependencyError.notSetup
         }
         delegate.openAirAppsOne()
